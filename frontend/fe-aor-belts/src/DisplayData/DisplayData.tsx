@@ -47,7 +47,7 @@ function DisplayData() {
 
   async function getData() {
     try {
-      const result = await fetch('http://localhost:3000/api/show');
+      const result = await fetch('https://aor-belts-main.onrender.com');
       const fetchedData = await result.json();
       setData(fetchedData);
       console.log(fetchedData);
