@@ -5,6 +5,10 @@ dotenv.config();
 const url = process.env.MONGODB_URL;
 
 const connectToDatabase = () => {
+  if (!process.env.MONGODB_URL) {
+    throw new Error('MONGODB_URL is not defined in .env file');
+  }
+
   mongoose
     .connect(`${url}`, {})
     .then(() => console.log('Connected to the database'))

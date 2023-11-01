@@ -9,10 +9,10 @@ router.put('/students/:id', async (req, res) => {
   console.log('PUT request received for student:', id);
 
   try {
-    // Använd Mongoose för att hitta och uppdatera studenten
+
     const student = await Student.findByIdAndUpdate(id, updatedStudent, {
       new: true,
-    }); // 'new: true' returnerar den uppdaterade studenten
+    });
 
     if (!student) {
       res.status(404).json({ message: 'Student not found' });
