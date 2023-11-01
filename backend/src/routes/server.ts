@@ -9,6 +9,11 @@ import putRoute from './put';
 import path from 'path';
 dotenv.config();
 
+const pathToBuildFolder = path.join(
+  __dirname,
+  '../../../frontend/fe-aor-belts/build'
+);
+
 const app = express();
 const PORT = process.env.PORT;
 
@@ -16,7 +21,7 @@ app.use(cors({ origin: 'https://aor-belts-main.onrender.com' }));
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/../frontend/fe-aor-belts/build'));
+app.use(express.static(pathToBuildFolder));
 
 app.use('/api', studentRouter);
 
@@ -25,7 +30,7 @@ app.use('/api', getStudents);
 app.use('/api', putRoute);
 
 app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/../frontend/fe-aor-belts/build/index.html');
+  res.sendFile(path.join(pathToBuildFolder, 'index.html'));
 });
 
 app.listen(PORT, () => {
