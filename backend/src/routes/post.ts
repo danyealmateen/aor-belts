@@ -3,11 +3,10 @@ import { Student } from '../schema/schema';
 
 const router = express.Router();
 
-router.post('/student', async (req, res) => {
+router.post('/students', async (req, res) => {
   try {
-    const student = new Student(req.body);
-    await student.save();
-    res.status(201).send(student);
+    const students = await Student.insertMany(req.body);
+    res.status(201).send(students);
   } catch (error) {
     res.status(400).send(error);
   }

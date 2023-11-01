@@ -9,6 +9,9 @@ const student = new Schema({
   belt: {
     type: String,
   },
+  group: {
+    type: String,
+  },
 });
 
 export const Student = mongoose.model('Student', student);
