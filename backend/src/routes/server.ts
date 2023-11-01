@@ -11,6 +11,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
+
 app.use(cors({ origin: 'https://aor-belts-main.onrender.com' }));
 
 app.use(bodyParser.json());
