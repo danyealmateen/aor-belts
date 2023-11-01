@@ -11,7 +11,6 @@ function DisplayData() {
   };
 
   async function updateData(updatedStudent: Student) {
-    // Uppdatera den lokala datan först för en "optimistic update"
     setData((prevData) => {
       if (prevData) {
         return prevData.map((s) =>
@@ -21,10 +20,9 @@ function DisplayData() {
       return prevData;
     });
 
-    // Skicka uppdateringen till backend
     try {
       const response = await fetch(
-        `http://localhost:3000/api/students/${updatedStudent._id}`,
+        `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`,
         {
           method: 'PUT',
           headers: {
@@ -47,7 +45,10 @@ function DisplayData() {
 
   async function getData() {
     try {
-      const result = await fetch('https://aor-belts-main.onrender.com');
+      const result = await fetch(
+        'https://aor-belts-main.onrender.com/api/show' 
+      );
+
       const fetchedData = await result.json();
       setData(fetchedData);
       console.log(fetchedData);
