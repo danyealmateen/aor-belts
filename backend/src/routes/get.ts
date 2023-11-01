@@ -1,5 +1,5 @@
 import express from 'express';
-import { Student } from './schema';
+import { Student } from '../schema/schema';
 
 const router = express.Router();
 

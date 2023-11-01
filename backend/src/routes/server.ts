@@ -1,12 +1,12 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
-import connectToDatabase from './db';
+import connectToDatabase from '../db/db';
 import studentRouter from './post';
 import getStudents from './get';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 dotenv.config();
 
 app.use(bodyParser.json());
