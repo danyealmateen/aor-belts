@@ -1,5 +1,8 @@
 {
   "name": "aor-belts",
+  "engines": {
+    "node": "21.1.0"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
