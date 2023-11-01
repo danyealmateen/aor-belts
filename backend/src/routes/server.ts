@@ -16,7 +16,7 @@ app.use(cors({ origin: 'https://aor-belts-main.onrender.com' }));
 
 app.use(bodyParser.json());
 
-app.use(express.static('build'));
+app.use(express.static(__dirname + '/../frontend/fe-aor-belts/build'));
 
 app.use('/api', studentRouter);
 
@@ -25,7 +25,7 @@ app.use('/api', getStudents);
 app.use('/api', putRoute);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  res.sendFile(__dirname + '/../frontend/fe-aor-belts/build/index.html');
 });
 
 app.listen(PORT, () => {
