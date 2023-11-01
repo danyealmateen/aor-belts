@@ -6,21 +6,27 @@ import connectToDatabase from '../db/db';
 import studentRouter from './post';
 import getStudents from './get';
 import putRoute from './put';
+import path from 'path';
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;
 
-
 app.use(cors({ origin: 'https://aor-belts-main.onrender.com' }));
 
 app.use(bodyParser.json());
+
+app.use(express.static('build'));
 
 app.use('/api', studentRouter);
 
 app.use('/api', getStudents);
 
 app.use('/api', putRoute);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Servern lyssnar på port ${PORT}`);
