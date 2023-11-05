@@ -9,7 +9,6 @@ router.put('/students/:id', async (req, res) => {
   console.log('PUT request received for student:', id);
 
   try {
-
     const student = await Student.findByIdAndUpdate(id, updatedStudent, {
       new: true,
     });

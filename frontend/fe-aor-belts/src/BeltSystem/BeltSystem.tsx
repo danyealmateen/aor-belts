@@ -7,6 +7,7 @@ type BeltSystemProps = {
     name: string;
     belt: string;
     group: string;
+    graduated: boolean;
   };
   onBeltChange: (updateStudent: any) => void;
 };
@@ -38,15 +39,25 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
 
   function increaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
+    console.log('detta är currentindex:', currentIndex);
     if (currentIndex < belts.length - 1) {
-      const updatedStudent = { ...student, belt: belts[currentIndex + 1] };
+      const updatedStudent = {
+        ...student,
+        belt: belts[currentIndex + 1],
+        graduated: true,
+      };
       onBeltChange(updatedStudent);
     }
   }
+
   function decreaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
     if (currentIndex > 0) {
-      const updatedStudent = { ...student, belt: belts[currentIndex - 1] };
+      const updatedStudent = {
+        ...student,
+        belt: belts[currentIndex - 1],
+        graduated: false,
+      };
       onBeltChange(updatedStudent);
     }
   }

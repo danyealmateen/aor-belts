@@ -17,7 +17,11 @@ const pathToBuildFolder = path.join(
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors({ origin: 'https://aor-belts-main.onrender.com' }));
+app.use(
+  cors({
+    origin: ['https://aor-belts-main.onrender.com', 'http://localhost:3001'],
+  })
+);
 
 app.use(bodyParser.json());
 

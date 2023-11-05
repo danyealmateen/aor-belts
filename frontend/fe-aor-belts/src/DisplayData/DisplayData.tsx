@@ -8,6 +8,7 @@ function DisplayData() {
     name: string;
     belt: string;
     group: string;
+    graduated: boolean;
   };
 
   async function updateData(updatedStudent: Student) {
@@ -21,6 +22,7 @@ function DisplayData() {
     });
 
     try {
+      //PRODUKTION
       const response = await fetch(
         `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`,
         {
@@ -31,6 +33,18 @@ function DisplayData() {
           body: JSON.stringify(updatedStudent),
         }
       );
+
+      // //LOKALA
+      // const response = await fetch(
+      //   `http://localhost:3000/api/students/${updatedStudent._id}`,
+      //   {
+      //     method: 'PUT',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //     body: JSON.stringify(updatedStudent),
+      //   }
+      // );
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -45,9 +59,13 @@ function DisplayData() {
 
   async function getData() {
     try {
+      // PRODUKTION
       const result = await fetch(
-        'https://aor-belts-main.onrender.com/api/show' 
+        'https://aor-belts-main.onrender.com/api/show'
       );
+
+      // //LOKALA
+      // const result = await fetch('http://localhost:3000/api/show');
 
       const fetchedData = await result.json();
       setData(fetchedData);
@@ -65,10 +83,17 @@ function DisplayData() {
 
   return (
     <>
-      <h1 className='header'>Barngruppen 2023-11-01</h1>
+      <h1 className='header'>Barngruppens gradering November 2023</h1>
       {data &&
         data.map((student) => (
-          <div className='kids-div' key={student._id}>
+          <div
+            className={`kids-div ${
+              student.graduated && student.graduated === true
+                ? 'graduated'
+                : student.graduated === false
+            }`}
+            key={student._id}
+          >
             <BeltSystem
               student={student}
               onBeltChange={(updatedStudent) => updateData(updatedStudent)}

@@ -12,6 +12,9 @@ const student = new Schema({
   group: {
     type: String,
   },
+  graduated: {
+    type: Boolean,
+  },
 });
 
 export const Student = mongoose.model('Student', student);
