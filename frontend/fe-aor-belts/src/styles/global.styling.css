@@ -1,0 +1,131 @@
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #333;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #333333; /* Mörkgrå bakgrundsfärg */
+  color: white;
+  font-size: 18px;
+}
+
+.header {
+  color: white;
+}
+
+.kids-div {
+  background-color: #211f1f; /* Mellangrå bakgrundsfärg */
+  margin: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.kids-div:hover {
+  background-color: #888888; /* Ljusare grå vid hover */
+}
+
+.graduated {
+  background-color: #444444; /* Mörkare grå för graderad person */
+  color: #ffffff;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.graduated:hover {
+  background-color: #222222; /* Ännu mörkare grå vid hover */
+}
+
+.not-graduated {
+  background-color: #999999; /* Ljusare grå för icke-graderad person */
+  color: white;
+  border: 2px solid #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.not-graduated:hover {
+  background-color: #777777; /* Ännu ljusare grå vid hover */
+}
+
+.asc-btn,
+.desc-btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.asc-btn {
+  background-color: green; /* Mellangrå för stigande knapp */
+  color: white;
+}
+
+.asc-btn:hover {
+  background-color: #888888; /* Ljusare grå vid hover */
+}
+
+.desc-btn {
+  background-color: rgb(111, 2, 2); /* Mörkare grå för sjunkande knapp */
+  color: white;
+}
+
+.desc-btn:hover {
+  background-color: #222222; /* Ännu mörkare grå vid hover */
+}
+
+/* CSS för toggle-knappen */
+.toggle-btn {
+  /* background-color: transparent; */
+  color: #333333; /* Mörkgrå textfärg i light mode */
+  border: 2px solid #333333; /* Mörkgrå ram */
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Stil för hover-effekter i light mode */
+.toggle-btn:hover {
+  background-color: #333333; /* Mörkgrå bakgrundsfärg i hover-effekt */
+  color: white;
+}
+
+/* Stil för dark mode */
+.toggle-btn.dark-mode {
+  color: white;
+  border-color: white; /* Vit ram i dark mode */
+}
+
+/* Stil för hover-effekter i dark mode */
+.toggle-btn.dark-mode:hover {
+  background-color: white; /* Vit bakgrundsfärg i hover-effekt i dark mode */
+  color: #333333; /* Mörkgrå textfärg i hover-effekt i dark mode */
+}

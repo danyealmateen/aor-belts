@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './DisplayData.css';
 import BeltSystem from '../BeltSystem/BeltSystem';
 
 function DisplayData() {
@@ -22,9 +21,12 @@ function DisplayData() {
     });
 
     try {
+      // //LOKALA
+      // `http://localhost:3000/api/students/${updatedStudent._id}`
       //PRODUKTION
+      // `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`
       const response = await fetch(
-        `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`,
+        `http://localhost:3000/api/students/${updatedStudent._id}`,
         {
           method: 'PUT',
           headers: {
@@ -33,18 +35,6 @@ function DisplayData() {
           body: JSON.stringify(updatedStudent),
         }
       );
-
-      // //LOKALA
-      // const response = await fetch(
-      //   `http://localhost:3000/api/students/${updatedStudent._id}`,
-      //   {
-      //     method: 'PUT',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(updatedStudent),
-      //   }
-      // );
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -59,13 +49,12 @@ function DisplayData() {
 
   async function getData() {
     try {
-      // PRODUKTION
-      const result = await fetch(
-        'https://aor-belts-main.onrender.com/api/show'
-      );
-
       // //LOKALA
-      // const result = await fetch('http://localhost:3000/api/show');
+      const result = await fetch('http://localhost:3000/api/show');
+      // PRODUKTION
+      // const result = await fetch(
+      //   'https://aor-belts-main.onrender.com/api/show'
+      // );
 
       const fetchedData = await result.json();
       setData(fetchedData);
@@ -83,7 +72,6 @@ function DisplayData() {
 
   return (
     <>
-      <h1 className='header'>Barngruppens gradering November 2023</h1>
       {data &&
         data.map((student) => (
           <div

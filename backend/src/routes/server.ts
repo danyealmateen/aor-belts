@@ -19,7 +19,11 @@ const PORT = process.env.PORT;
 
 app.use(
   cors({
-    origin: ['https://aor-belts-main.onrender.com', 'http://localhost:3001'],
+    origin: [
+      'https://aor-belts-main.onrender.com',
+      'http://localhost:3001',
+      'http://localhost:3000',
+    ],
   })
 );
 

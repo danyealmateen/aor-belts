@@ -8,3 +8,10 @@
 Gör också att man kan använda req.body
 6. urlencoded tolkar kroppsdata från t,ex HTTP formulär.
 7. express.json() gör samma sak som bodyParser men är mer modernt och inbyggt i express 
+
+
+2023-11-07 
+
+1. Lägg till dark-mode
+2. Lägg till auth för admin
+3. Flytta till nextJS

@@ -1,5 +1,5 @@
 import React from 'react';
-import './BeltSystem.css';
+
 
 type BeltSystemProps = {
   student: {
