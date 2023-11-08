@@ -21,7 +21,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #333333; /* Mörkgrå bakgrundsfärg */
+  background-color: #333333; 
   color: white;
   font-size: 18px;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .kids-div {
-  background-color: #211f1f; /* Mellangrå bakgrundsfärg */
+  background-color: #211f1f; 
   margin: 8px;
   border-radius: 5px;
   margin-top: 10px;
@@ -40,11 +40,11 @@ body {
 }
 
 .kids-div:hover {
-  background-color: #888888; /* Ljusare grå vid hover */
+  background-color: #888888; 
 }
 
 .graduated {
-  background-color: #444444; /* Mörkare grå för graderad person */
+  background-color: #444444; 
   color: #ffffff;
   font-weight: bold;
   border: 2px solid #ffffff;
@@ -54,11 +54,11 @@ body {
 }
 
 .graduated:hover {
-  background-color: #222222; /* Ännu mörkare grå vid hover */
+  background-color: #222222; 
 }
 
 .not-graduated {
-  background-color: #999999; /* Ljusare grå för icke-graderad person */
+  background-color: #999999; 
   color: white;
   border: 2px solid #ffffff;
   padding: 10px;
@@ -67,7 +67,7 @@ body {
 }
 
 .not-graduated:hover {
-  background-color: #777777; /* Ännu ljusare grå vid hover */
+  background-color: #777777; 
 }
 
 .asc-btn,
@@ -82,28 +82,28 @@ body {
 }
 
 .asc-btn {
-  background-color: green; /* Mellangrå för stigande knapp */
+  background-color: green; 
   color: white;
 }
 
 .asc-btn:hover {
-  background-color: #888888; /* Ljusare grå vid hover */
+  background-color: #888888;
 }
 
 .desc-btn {
-  background-color: rgb(111, 2, 2); /* Mörkare grå för sjunkande knapp */
+  background-color: rgb(111, 2, 2); 
   color: white;
 }
 
 .desc-btn:hover {
-  background-color: #222222; /* Ännu mörkare grå vid hover */
+  background-color: #222222;
 }
 
-/* CSS för toggle-knappen */
+
 .toggle-btn {
-  /* background-color: transparent; */
-  color: #333333; /* Mörkgrå textfärg i light mode */
-  border: 2px solid #333333; /* Mörkgrå ram */
+  
+  color: #333333; 
+  border: 2px solid #333333; 
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -112,20 +112,20 @@ body {
     border-color 0.3s ease;
 }
 
-/* Stil för hover-effekter i light mode */
+
 .toggle-btn:hover {
-  background-color: #333333; /* Mörkgrå bakgrundsfärg i hover-effekt */
+  background-color: #333333; 
   color: white;
 }
 
-/* Stil för dark mode */
+
 .toggle-btn.dark-mode {
   color: white;
-  border-color: white; /* Vit ram i dark mode */
+  border-color: white; 
 }
 
-/* Stil för hover-effekter i dark mode */
+
 .toggle-btn.dark-mode:hover {
-  background-color: white; /* Vit bakgrundsfärg i hover-effekt i dark mode */
-  color: #333333; /* Mörkgrå textfärg i hover-effekt i dark mode */
+  background-color: white; 
+  color: #333333; 
 }
