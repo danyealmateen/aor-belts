@@ -26,7 +26,7 @@ function DisplayData() {
       //PRODUKTION
       // `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`
       const response = await fetch(
-        `http://localhost:3000/api/students/${updatedStudent._id}`,
+        `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`,
         {
           method: 'PUT',
           headers: {
@@ -50,11 +50,11 @@ function DisplayData() {
   async function getData() {
     try {
       // //LOKALA
-      const result = await fetch('http://localhost:3000/api/show');
+      // const result = await fetch('http://localhost:3000/api/show');
       // PRODUKTION
-      // const result = await fetch(
-      //   'https://aor-belts-main.onrender.com/api/show'
-      // );
+      const result = await fetch(
+        'https://aor-belts-main.onrender.com/api/show'
+      );
 
       const fetchedData = await result.json();
       setData(fetchedData);
