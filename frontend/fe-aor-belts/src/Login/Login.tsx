@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 function Login(props: any) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
+    setLoginError('');
 
     try {
       const response = await fetch('http://localhost:3000/api/login', {
@@ -25,14 +27,14 @@ function Login(props: any) {
         console.error(error);
       }
     } catch (error) {
-      console.error('Inloggningen misslyckades', error);
+      setLoginError('Inloggningen misslyckades');
     }
   };
 
   return (
     <div>
       <h1>Login page</h1>
-      <form onSubmit={handleLogin} action='/login' method='post'>
+      <form onSubmit={handleLogin}>
         <input
           type='text'
           value={username}
@@ -49,6 +51,7 @@ function Login(props: any) {
         <br />
         <button type='submit'>Login</button>
       </form>
+      {loginError && <p>{loginError}</p>}
     </div>
   );
 }
