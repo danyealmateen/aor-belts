@@ -6,7 +6,6 @@ function Login(props: any) {
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
-    props.onLogin(true);
 
     try {
       const response = await fetch('http://localhost:3000/api/login', {
@@ -19,6 +18,7 @@ function Login(props: any) {
 
       if (response.ok) {
         const message = await response.text();
+        props.onLogin(true);
         console.log(message);
       } else {
         const error = await response.text();
