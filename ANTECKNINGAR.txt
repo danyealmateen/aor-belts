@@ -15,3 +15,7 @@ Gör också att man kan använda req.body
 1. Lägg till dark-mode
 2. Lägg till auth för admin
 3. Flytta till nextJS
+
+2023-11-09 
+lägger till login sida på både backend och frontend. 
+behöver lägga til hashpassword

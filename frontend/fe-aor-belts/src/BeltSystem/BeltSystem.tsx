@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 type BeltSystemProps = {
   student: {
     _id: string;
@@ -14,6 +13,7 @@ type BeltSystemProps = {
 
 const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   const belts = [
+    'Nybörjare',
     'Vitbälte',
     'Vitbälte+1',
     'Vitbälte+2',

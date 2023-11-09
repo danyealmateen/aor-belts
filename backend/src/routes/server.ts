@@ -7,6 +7,7 @@ import studentRouter from './post';
 import getStudents from './get';
 import putRoute from './put';
 import path from 'path';
+import login from './login';
 dotenv.config();
 
 const pathToBuildFolder = path.join(
@@ -23,6 +24,7 @@ app.use(
       'https://aor-belts-main.onrender.com',
       'http://localhost:3001',
       'http://localhost:3000',
+      'http://localhost:3000/api/login',
     ],
   })
 );
@@ -30,6 +32,8 @@ app.use(
 app.use(bodyParser.json());
 
 app.use(express.static(pathToBuildFolder));
+
+app.use('/api', login);
 
 app.use('/api', studentRouter);
 
