@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Login(props: any) {
   const [username, setUsername] = useState('');
