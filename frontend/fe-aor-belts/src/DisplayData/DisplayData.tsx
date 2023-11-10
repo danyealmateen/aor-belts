@@ -70,6 +70,21 @@ function DisplayData() {
 
   const [data, setData] = useState<Student[] | null>(null);
 
+  function sortStudents(students: Student[]) {
+    return [...students].sort((a, b) => {
+      const firstNameA = a.name.split(' ')[0].toLowerCase();
+      const firstNameB = b.name.split(' ')[0].toLowerCase();
+      return firstNameA.localeCompare(firstNameB);
+    });
+  }
+
+  useEffect(() => {
+    if (data) {
+      const sortedData = sortStudents(data);
+      setData(sortedData);
+    }
+  }, [data]);
+
   return (
     <>
       <h1 className='login-title'>Välkommen admin</h1>
