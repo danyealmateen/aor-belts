@@ -1,7 +1,6 @@
 import DisplayData from './DisplayData/DisplayData';
 import Login from './Login/Login';
 import '../src/styles/global.styling.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 function App() {

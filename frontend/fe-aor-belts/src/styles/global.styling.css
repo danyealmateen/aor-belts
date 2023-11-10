@@ -1,13 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap');
-/* .dark {
-  background-color: black;
-  color: #fff;
-}
-.light {
-  background-color: #fff;
-  color: #333;
-} */
-
 body {
   display: flex;
   flex-direction: column;
@@ -15,7 +6,8 @@ body {
   align-items: center;
   text-align: center;
   font-family: 'Inter', sans-serif;
-  background-color: rgb(69, 68, 68);
+  background-color: black;
+  font-size: 20px;
 }
 
 .kids-div {
@@ -33,26 +25,16 @@ body {
   background-color: rgb(181, 0, 0);
 }
 
-/* .asc-btn,
-.desc-btn {
-  margin: 15px;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.asc-btn:hover,
-.desc-btn:hover {
-  scale: 1.1;
-}
-
-.toggle-btn {
-  background-color: darkblue;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
-} */
-
 .graduated {
   background-color: green;
   color: black;
+  /* color: white; */
+}
+
+.login-error {
+  color: red;
+}
+
+.login-title {
+  color: white;
 }

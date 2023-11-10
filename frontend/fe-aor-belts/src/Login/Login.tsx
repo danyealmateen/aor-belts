@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import logo from '../images/logo.jpg';
 
 function Login(props: any) {
   const [username, setUsername] = useState('');
@@ -24,12 +25,11 @@ function Login(props: any) {
       );
 
       if (response.ok) {
-        const message = await response.text();
         props.onLogin(true);
-        console.log(message);
       } else {
         const error = await response.text();
         console.error(error);
+        setLoginError('Fel användarnamn eller lösenord.');
       }
     } catch (error) {
       setLoginError('Inloggningen misslyckades');
@@ -38,13 +38,14 @@ function Login(props: any) {
 
   return (
     <div>
-      <h1>Login page</h1>
+      <img src={logo} alt='' />
+      <h1 className='login-title'>Logga in</h1>
       <form onSubmit={handleLogin}>
         <input
           type='text'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder='username'
+          placeholder='Användarnamn'
           required
         />
         <br />
@@ -52,13 +53,14 @@ function Login(props: any) {
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder='password'
+          placeholder='Lösenord'
           required
         />
         <br />
-        <button type='submit'>Login</button>
+        <button type='submit'>Logga in</button>
+
+        {loginError && <h2 className='login-error'>{loginError}</h2>}
       </form>
-      {loginError && <p>{loginError}</p>}
     </div>
   );
 }

@@ -72,6 +72,8 @@ function DisplayData() {
 
   return (
     <>
+      <h1 className='login-title'>Välkommen admin</h1>
+      <hr />
       {data &&
         data.map((student) => (
           <div
