@@ -37,9 +37,9 @@ function Login(props: any) {
   };
 
   return (
-    <div>
-      <img src={logo} alt='' />
-      <h1 className='login-title'>Logga in</h1>
+    <div className='content-container-login'>
+      <img className='logo' src={logo} alt='' />
+      {/* <h1 className='login-title'>Logga in</h1> */}
       <form onSubmit={handleLogin}>
         <input
           type='text'
@@ -47,6 +47,7 @@ function Login(props: any) {
           onChange={(e) => setUsername(e.target.value)}
           placeholder='Användarnamn'
           required
+          className='input-username'
         />
         <br />
         <input
@@ -55,9 +56,12 @@ function Login(props: any) {
           onChange={(e) => setPassword(e.target.value)}
           placeholder='Lösenord'
           required
+          className='input-password'
         />
         <br />
-        <button type='submit'>Logga in</button>
+        <button className='login-btn' type='submit'>
+          Logga in
+        </button>
 
         {loginError && <h2 className='login-error'>{loginError}</h2>}
       </form>
