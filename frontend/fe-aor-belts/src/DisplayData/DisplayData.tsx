@@ -58,6 +58,7 @@ function DisplayData() {
       );
 
       const fetchedData = await result.json();
+      console.log(fetchedData);
       const sortedData = sortStudents(fetchedData);
       setData(sortedData);
     } catch (error) {
@@ -66,6 +67,8 @@ function DisplayData() {
   }
 
   useEffect(() => {
+    console.log(getData());
+
     getData();
   }, []);
 

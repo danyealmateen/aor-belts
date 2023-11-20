@@ -17,6 +17,11 @@ function App() {
   }
 
   return (
+    // <div>
+    //   <DisplayData />
+    //   <DisplayKnattar />
+    // </div>
+
     <Router>
       <Routes>
         <Route path='/' element={<DisplayData />} />
@@ -25,5 +30,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

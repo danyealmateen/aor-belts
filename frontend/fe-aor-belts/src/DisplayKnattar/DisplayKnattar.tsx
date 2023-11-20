@@ -17,8 +17,10 @@ function DisplayKnattar() {
   async function getData() {
     try {
       const response = await fetch(
-        'https://aor-belts-main.onrender.com/api/show'
+        'https://aor-belts-main.onrender.com/api/show/knattar'
       );
+
+      console.log(response);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -42,7 +44,7 @@ function DisplayKnattar() {
   return (
     <div>
       <Dashboard />
-      <h2>Knattar</h2>
+      <h2 className='knatte-title'>Knattar</h2>
       <ul className='knatte-ul'>
         {knattar.map((student) => (
           <li key={student._id}>
