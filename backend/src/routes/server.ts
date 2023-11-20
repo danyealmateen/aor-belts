@@ -25,6 +25,7 @@ app.use(
       'http://localhost:3001',
       'http://localhost:3000',
       'http://localhost:3000/api/login',
+      'http://localhost:3000/api/show/knattar',
     ],
   })
 );

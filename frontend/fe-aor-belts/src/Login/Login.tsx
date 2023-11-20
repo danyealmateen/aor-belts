@@ -39,7 +39,6 @@ function Login(props: any) {
   return (
     <div className='content-container-login'>
       <img className='logo' src={logo} alt='' />
-      {/* <h1 className='login-title'>Logga in</h1> */}
       <form onSubmit={handleLogin}>
         <input
           type='text'

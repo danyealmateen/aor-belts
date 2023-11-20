@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import BeltSystem from '../BeltSystem/BeltSystem';
+import Dashboard from '../Dashboard/Dashboard';
 
 function DisplayData() {
   type Student = {
@@ -57,8 +58,8 @@ function DisplayData() {
       );
 
       const fetchedData = await result.json();
-      setData(fetchedData);
-      console.log(fetchedData);
+      const sortedData = sortStudents(fetchedData);
+      setData(sortedData);
     } catch (error) {
       console.log('Error fetching data', error);
     }
@@ -78,19 +79,17 @@ function DisplayData() {
     });
   }
 
-  useEffect(() => {
-    if (data) {
-      const sortedData = sortStudents(data);
-      setData(sortedData);
-    }
+  const sortedData = useMemo(() => {
+    return data ? sortStudents(data) : [];
   }, [data]);
 
   return (
     <>
+      <Dashboard />
       <h1 className='login-title'>Välkommen admin</h1>
       <hr />
-      {data &&
-        data.map((student) => (
+      {sortedData &&
+        sortedData.map((student) => (
           <div
             className={`kids-div ${
               student.graduated && student.graduated === true

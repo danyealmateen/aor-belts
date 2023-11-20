@@ -57,7 +57,6 @@ body {
   margin: 5px;
   border: 3px solid white;
   font-weight: 1000;
- 
 }
 
 .login-btn {
@@ -79,5 +78,19 @@ body {
 }
 
 .content-container-login {
+  padding: 50px;
+}
+
+.knatte-ul {
+  color: white;
+  background-color: brown;
+}
+
+.dashboard-title {
+  color: white;
+}
+
+.dashboard-content-container {
+  background-color: rgb(51, 49, 49);
   padding: 50px;
 }
