@@ -7,7 +7,6 @@ const router = express.Router();
 router.put('/students/:id', async (req, res) => {
   const id = req.params.id;
   const updatedStudent = req.body;
-  console.log('detta är req.body:', req.body);
 
   try {
     const student = await Student.findByIdAndUpdate(id, updatedStudent, {
@@ -15,12 +14,7 @@ router.put('/students/:id', async (req, res) => {
     });
 
     if (!student) {
-      console.log(student);
-      res.status(404).json({
-        message: 'Student not found',
-        idRecieved: id,
-        bodyRecieved: updatedStudent,
-      });
+      res.status(404).json({ message: 'Student not found' });
       return;
     }
 
@@ -29,13 +23,7 @@ router.put('/students/:id', async (req, res) => {
       data: student,
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: 'Error updating student',
-        idRecieved: id,
-        bodyRecieved: updatedStudent,
-      });
+    res.status(500).json({ message: 'Error updating student' });
     console.log(error);
   }
 });

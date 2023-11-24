@@ -11,12 +11,20 @@ function DisplayData() {
     graduated: boolean;
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   async function updateData(updatedStudent: Student) {
+    console.log('före uppdatering:', updatedStudent._id);
     setData((prevData) => {
       if (prevData) {
-        return prevData.map((s) =>
+        console.log('test');
+        const newData = prevData.map((s) =>
           s._id === updatedStudent._id ? updatedStudent : s
         );
+        console.log('efter uppdatering:', newData); // Logga efter uppdatering
+        return newData;
       }
       return prevData;
     });
@@ -58,16 +66,14 @@ function DisplayData() {
       );
 
       const fetchedData = await result.json();
+
+      console.log(fetchedData);
       const sortedData = sortStudents(fetchedData);
       setData(sortedData);
     } catch (error) {
       console.log('Error fetching data', error);
     }
   }
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const [data, setData] = useState<Student[] | null>(null);
 
