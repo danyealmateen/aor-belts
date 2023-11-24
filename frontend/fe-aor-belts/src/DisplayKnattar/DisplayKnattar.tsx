@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dashboard from '../Dashboard/Dashboard';
 import BeltSystem from '../BeltSystem/BeltSystem';
 
@@ -18,7 +18,7 @@ function DisplayKnattar() {
   async function getData() {
     try {
       const response = await fetch(
-        'https://aor-belts-main.onrender.com/api/show/knattar'
+        'https://aor-belts-main.onrender.com/api/knatte/'
       );
 
       if (!response.ok) {
@@ -37,7 +37,7 @@ function DisplayKnattar() {
   async function updateData(updatedStudent: Student) {
     try {
       const response = await fetch(
-        `https://aor-belts-main.onrender.com/api/knattar/${updatedStudent._id}`,
+        `https://aor-belts-main.onrender.com/api/knatte/${updatedStudent._id}`,
         {
           method: 'PUT',
           headers: {
@@ -53,6 +53,11 @@ function DisplayKnattar() {
 
       const responseData = await response.json();
       console.log('Data successfully updated:', responseData);
+
+      const updatedKnattar = knattar.map((knatte) =>
+        knatte._id === updatedStudent._id ? updatedStudent : knatte
+      );
+      setKnattar(updatedKnattar);
     } catch (error) {
       console.error('Error updating student:', error);
     }
@@ -71,7 +76,14 @@ function DisplayKnattar() {
       <h1 className='knatte-title'>Knattegruppen</h1>
       <div>
         {knattar.map((student) => (
-          <div className='knatte-div' key={student._id}>
+          <div
+            className={`kids-div ${
+              student.graduated && student.graduated === true
+                ? 'graduated graduated-true'
+                : ''
+            }`}
+            key={student._id}
+          >
             <BeltSystem
               student={student}
               onBeltChange={(updatedStudent) => updateData(updatedStudent)}

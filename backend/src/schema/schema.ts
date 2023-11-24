@@ -17,5 +17,5 @@ const student = new Schema({
   },
 });
 
-export const Student = mongoose.model('Student', student, 'Students');
-export const Knatte = mongoose.model('Knatte', student, 'Knattar');
+export const Barn = mongoose.model('barn', student, 'barn');
+export const Knattar = mongoose.model('knatte', student, 'knatte');

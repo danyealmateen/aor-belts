@@ -17,7 +17,8 @@ body {
   font-size: 20px;
 }
 
-.kids-div, .knatte-div {
+.kids-div,
+.knatte-div {
   border-radius: 5px;
   background-color: white;
   padding: 5px;
@@ -125,3 +126,18 @@ body {
 .dashboard-title {
   color: white;
 }
+
+/* Lägg till en ny klass för de som har graduated som är true */
+.graduated-true {
+  background-color: rgb(128, 0, 128);
+  color: white;
+}
+
+/* Ändra färgstilen för .knatte-div och .kids-div när graduated är true */
+.kids-div.graduated-true,
+.knatte-div.graduated-true {
+  background-color: rgb(128, 0, 128);
+  color: white;
+}
+
+

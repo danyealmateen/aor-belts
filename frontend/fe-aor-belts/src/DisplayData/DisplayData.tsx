@@ -11,31 +11,26 @@ function DisplayData() {
     graduated: boolean;
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   async function updateData(updatedStudent: Student) {
-    console.log('före uppdatering:', updatedStudent._id);
     setData((prevData) => {
       if (prevData) {
-        console.log('test');
         const newData = prevData.map((s) =>
           s._id === updatedStudent._id ? updatedStudent : s
         );
-        console.log('efter uppdatering:', newData); // Logga efter uppdatering
+        console.log('returnar det nya');
         return newData;
       }
+      console.log('nope gick inte');
       return prevData;
     });
 
     try {
       // //LOKALA
-      // `http://localhost:3000/api/students/${updatedStudent._id}`
+      // `http://localhost:3000/api/barn/${updatedStudent._id}`
       //PRODUKTION
-      // `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`
+      // `https://aor-belts-main.onrender.com/api/barn/${updatedStudent._id}`
       const response = await fetch(
-        `https://aor-belts-main.onrender.com/api/students/${updatedStudent._id}`,
+        `https://aor-belts-main.onrender.com/api/barn/${updatedStudent._id}`,
         {
           method: 'PUT',
           headers: {
@@ -62,12 +57,11 @@ function DisplayData() {
       // const result = await fetch('http://localhost:3000/api/show');
       // PRODUKTION
       const result = await fetch(
-        'https://aor-belts-main.onrender.com/api/show'
+        'https://aor-belts-main.onrender.com/api/barn/'
       );
 
       const fetchedData = await result.json();
 
-      console.log(fetchedData);
       const sortedData = sortStudents(fetchedData);
       setData(sortedData);
     } catch (error) {
@@ -76,6 +70,10 @@ function DisplayData() {
   }
 
   const [data, setData] = useState<Student[] | null>(null);
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   function sortStudents(students: Student[]) {
     return [...students].sort((a, b) => {

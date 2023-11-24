@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import connectToDatabase from '../db/db';
-import studentRouter from './post';
 import getStudents from './get';
 import putRoute from './put';
 import path from 'path';
@@ -26,6 +25,7 @@ app.use(
       'http://localhost:3000',
       'http://localhost:3000/api/login',
       'http://localhost:3000/api/show/knattar',
+      'http://localhost:3000/api/students/:id',
       'https://aor-belts-main.onrender.com/api/students/',
     ],
   })
@@ -36,8 +36,6 @@ app.use(bodyParser.json());
 app.use(express.static(pathToBuildFolder));
 
 app.use('/api', login);
-
-app.use('/api', studentRouter);
 
 app.use('/api', getStudents);
 

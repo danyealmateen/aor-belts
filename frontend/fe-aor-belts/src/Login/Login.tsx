@@ -5,11 +5,9 @@ function Login(props: any) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
-
   const handleLogin = async (event: any) => {
     event.preventDefault();
     setLoginError('');
-
     try {
       //LOKALT http://localhost:3000/api/login
       //PRODUKT 'https://aor-belts-main.onrender.com/api/login'
@@ -23,7 +21,6 @@ function Login(props: any) {
           body: JSON.stringify({ username, password }),
         }
       );
-
       if (response.ok) {
         props.onLogin(true);
       } else {
@@ -35,7 +32,6 @@ function Login(props: any) {
       setLoginError('Inloggningen misslyckades');
     }
   };
-
   return (
     <div className='content-container-login'>
       <img className='logo' src={logo} alt='' />
@@ -61,7 +57,6 @@ function Login(props: any) {
         <button className='login-btn' type='submit'>
           Logga in
         </button>
-
         {loginError && <h2 className='login-error'>{loginError}</h2>}
       </form>
     </div>
