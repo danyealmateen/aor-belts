@@ -17,11 +17,6 @@ function App() {
   }
 
   return (
-    // <div>
-    //   <DisplayData />
-    //   <DisplayKnattar />
-    // </div>
-
     <Router>
       <Routes>
         <Route path='/' element={<DisplayData />} />

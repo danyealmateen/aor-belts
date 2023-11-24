@@ -6,8 +6,8 @@ function Dashboard() {
 
   return (
     <div className='dashboard-content-container'>
-      <h1 className='dashboard-title'>This is Dashboard</h1>
-      <button
+      <h3 className='dashboard-title'>Välkommen admin</h3>
+      <button className='knatte-btn'
         onClick={() => {
           navigate('/knattar');
           console.log('knatteknappen tryckt');
@@ -15,7 +15,7 @@ function Dashboard() {
       >
         Visa knatte
       </button>
-      <button
+      <button className='barn-btn'
         onClick={() => {
           navigate('/');
           console.log('barnknappen tryckt');

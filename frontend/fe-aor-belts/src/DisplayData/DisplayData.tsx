@@ -58,7 +58,6 @@ function DisplayData() {
       );
 
       const fetchedData = await result.json();
-      console.log(fetchedData);
       const sortedData = sortStudents(fetchedData);
       setData(sortedData);
     } catch (error) {
@@ -67,8 +66,6 @@ function DisplayData() {
   }
 
   useEffect(() => {
-    console.log(getData());
-
     getData();
   }, []);
 
@@ -89,8 +86,7 @@ function DisplayData() {
   return (
     <>
       <Dashboard />
-      <h1 className='login-title'>Välkommen admin</h1>
-      <hr />
+      <h1 className='login-title'>Barngruppen</h1>
       {sortedData &&
         sortedData.map((student) => (
           <div
