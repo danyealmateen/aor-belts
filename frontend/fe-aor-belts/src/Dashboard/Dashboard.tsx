@@ -22,7 +22,7 @@ function Dashboard() {
       >
         Visa barn
       </button>
-      <hr />
+
     </div>
   );
 }

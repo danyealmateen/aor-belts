@@ -87,8 +87,8 @@ function DisplayData() {
         sortedData.map((student) => (
           <div
             className={`kids-div ${student.graduated && student.graduated === true
-                ? 'graduated'
-                : student.graduated === false
+              ? 'graduated'
+              : student.graduated === false
               }`}
             key={student._id}
           >
