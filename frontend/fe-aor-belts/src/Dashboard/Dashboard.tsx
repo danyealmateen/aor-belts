@@ -1,4 +1,3 @@
-import DisplayKnattar from '../DisplayKnattar/DisplayKnattar';
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {

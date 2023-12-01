@@ -1,15 +1,8 @@
 import React from 'react';
-
-type BeltSystemProps = {
-  student: {
-    _id: string;
-    name: string;
-    belt: string;
-    group: string;
-    graduated: boolean;
-  };
-  onBeltChange: (updateStudent: any) => void;
-};
+import { BeltSystemProps } from '../Interfaces';
+const currentDate = new Date()
+const year = currentDate.getFullYear();
+const month = currentDate.toLocaleString('default', { month: 'long' });
 
 const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   const belts = [
@@ -39,7 +32,7 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
 
   function increaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
-  
+
     if (currentIndex < belts.length - 1) {
       const updatedStudent = {
         ...student,
@@ -72,8 +65,17 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
       <button className='desc-btn' onClick={decreaseBelt}>
         Downgrade
       </button>
+      {student.graduated === true ? (
+        <h4 className='graduated'>
+          Senast uppdaterad:
+          <br />
+          {month} {year}
+        </h4>
+      ) : null}
     </>
   );
 };
 
 export default BeltSystem;
+
+

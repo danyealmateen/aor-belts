@@ -1,15 +1,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import BeltSystem from '../BeltSystem/BeltSystem';
 import Dashboard from '../Dashboard/Dashboard';
+import { Student } from '../Interfaces';
 
 function DisplayData() {
-  type Student = {
-    _id: string;
-    name: string;
-    belt: string;
-    group: string;
-    graduated: boolean;
-  };
 
   async function updateData(updatedStudent: Student) {
     setData((prevData) => {
@@ -17,10 +11,8 @@ function DisplayData() {
         const newData = prevData.map((s) =>
           s._id === updatedStudent._id ? updatedStudent : s
         );
-        console.log('returnar det nya');
         return newData;
       }
-      console.log('nope gick inte');
       return prevData;
     });
 
@@ -94,11 +86,10 @@ function DisplayData() {
       {sortedData &&
         sortedData.map((student) => (
           <div
-            className={`kids-div ${
-              student.graduated && student.graduated === true
+            className={`kids-div ${student.graduated && student.graduated === true
                 ? 'graduated'
                 : student.graduated === false
-            }`}
+              }`}
             key={student._id}
           >
             <BeltSystem
