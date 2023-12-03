@@ -20,13 +20,13 @@ const PORT = process.env.PORT;
 app.use(
   cors({
     origin: [
-      'https://aor-belts-main.onrender.com',
-      'http://localhost:3001',
-      'http://localhost:3000',
-      'http://localhost:3000/api/login',
-      'http://localhost:3000/api/show/knattar',
-      'http://localhost:3000/api/students/:id',
-      'https://aor-belts-main.onrender.com/api/students/',
+      // 'https://aor-belts-main.onrender.com',
+      // 'http://localhost:3001',
+      // 'http://localhost:3000',
+      // 'http://localhost:3000/api/login',
+      // 'http://localhost:3000/api/show/knattar',
+      // 'http://localhost:3000/api/students/:id',
+      // 'https://aor-belts-main.onrender.com/api/students/',
     ],
   })
 );
@@ -46,7 +46,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servern lyssnar på port ${PORT}`);
+  console.log(`Servern listening to port: ${PORT}`);
 });
 
 connectToDatabase();

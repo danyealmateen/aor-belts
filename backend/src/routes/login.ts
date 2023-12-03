@@ -11,9 +11,9 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   if (username === adminUser.username && password === adminUser.password) {
-    res.status(200).send('Du är inloggad');
+    res.status(200).send('You are logged in.');
   } else {
-    res.status(401).send('Felaktigt användarnamn eller lösenord');
+    res.status(401).send('Wrong username or password');
   }
 });
 
