@@ -20,13 +20,12 @@ const PORT = process.env.PORT;
 app.use(
   cors({
     origin: [
-      // 'https://aor-belts-main.onrender.com',
-      // 'http://localhost:3001',
-      // 'http://localhost:3000',
-      // 'http://localhost:3000/api/login',
-      // 'http://localhost:3000/api/show/knattar',
-      // 'http://localhost:3000/api/students/:id',
-      // 'https://aor-belts-main.onrender.com/api/students/',
+      'https://aor-belts-main.onrender.com',
+      'https://aor-belts-main.onrender.com/api/students/',
+      'http://localhost:3001',
+      'http://localhost:3000',
+      'http://localhost:3000/api/login',
+      'http://localhost:3000/api/students/:id',
     ],
   })
 );
