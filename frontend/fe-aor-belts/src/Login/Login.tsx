@@ -25,10 +25,10 @@ function Login(props: any) {
       } else {
         const error = await response.text();
         console.error(error);
-        setLoginError('Fel användarnamn eller lösenord.');
+        setLoginError('Wrong username or password');
       }
     } catch (error) {
-      setLoginError('Inloggningen misslyckades');
+      setLoginError('Login failed');
     }
   };
   return (
@@ -39,7 +39,7 @@ function Login(props: any) {
           type='text'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder='Användarnamn'
+          placeholder='Username'
           required
           className='input-username'
         />
@@ -48,7 +48,7 @@ function Login(props: any) {
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder='Lösenord'
+          placeholder='Password'
           required
           className='input-password'
         />

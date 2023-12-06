@@ -1,9 +1,9 @@
-import express from 'express';
-import { Barn } from '../schema/schema';
+import express from "express";
+import { Barn } from "../schema/schema";
 
 const router = express.Router();
 
-router.get('/barn', async (req, res) => {
+router.get("/barn", async (req, res) => {
   try {
     const barn = await Barn.find();
     res.json(barn);

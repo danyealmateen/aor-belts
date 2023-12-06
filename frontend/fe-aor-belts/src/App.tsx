@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DisplayData from './DisplayData/DisplayData';
+import DisplayData from './DisplayKids/DisplayKids';
 import Login from './Login/Login';
 import '../src/styles/global.styling.css';
 import { useState } from 'react';
