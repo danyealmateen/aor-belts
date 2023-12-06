@@ -5,12 +5,11 @@ function Login(props: any) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+
   const handleLogin = async (event: any) => {
     event.preventDefault();
     setLoginError('');
     try {
-      //LOKALT http://localhost:3000/api/login
-      //PRODUKT 'https://aor-belts-main.onrender.com/api/login'
       const response = await fetch(
         'https://aor-belts-main.onrender.com/api/login',
         {

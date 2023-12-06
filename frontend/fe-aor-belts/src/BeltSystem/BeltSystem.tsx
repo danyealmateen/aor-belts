@@ -1,6 +1,6 @@
 import React from 'react';
 import { BeltSystemProps } from '../Interfaces';
-const currentDate = new Date()
+const currentDate = new Date();
 const year = currentDate.getFullYear();
 const month = currentDate.toLocaleString('default', { month: 'long' });
 
@@ -32,6 +32,8 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
 
   function increaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
+
+    console.log(currentIndex);
 
     if (currentIndex < belts.length - 1) {
       const updatedStudent = {
@@ -77,5 +79,3 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
 };
 
 export default BeltSystem;
-
-

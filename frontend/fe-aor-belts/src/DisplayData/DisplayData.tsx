@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import BeltSystem from '../BeltSystem/BeltSystem';
-import Dashboard from '../Dashboard/Dashboard';
 import { Student } from '../Interfaces';
 
 function DisplayData() {
+  const [filterStudents, setFilterStudents] = useState<Student[]>([]);
+  const [data, setData] = useState<Student[] | null>(null);
 
   async function updateData(updatedStudent: Student) {
     setData((prevData) => {
@@ -17,10 +18,6 @@ function DisplayData() {
     });
 
     try {
-      // //LOKALA
-      // `http://localhost:3000/api/barn/${updatedStudent._id}`
-      //PRODUKTION
-      // `https://aor-belts-main.onrender.com/api/barn/${updatedStudent._id}`
       const response = await fetch(
         `https://aor-belts-main.onrender.com/api/barn/${updatedStudent._id}`,
         {
@@ -45,23 +42,17 @@ function DisplayData() {
 
   async function getData() {
     try {
-      // //LOKALA
-      // const result = await fetch('http://localhost:3000/api/show');
-      // PRODUKTION
       const result = await fetch(
         'https://aor-belts-main.onrender.com/api/barn/'
       );
-
       const fetchedData = await result.json();
-
       const sortedData = sortStudents(fetchedData);
       setData(sortedData);
+      setFilterStudents(fetchedData);
     } catch (error) {
       console.log('Error fetching data', error);
     }
   }
-
-  const [data, setData] = useState<Student[] | null>(null);
 
   useEffect(() => {
     getData();
@@ -75,21 +66,36 @@ function DisplayData() {
     });
   }
 
-  const sortedData = useMemo(() => {
-    return data ? sortStudents(data) : [];
-  }, [data]);
+  const filterStudent = (event: any) => {
+    const inputValue = event.target.value.toLowerCase();
+    const filtered = data
+      ? data.filter((student) => {
+          const lowerCaseStudentName = student.name
+            .toLowerCase()
+            .replace(/ /g, '');
+          return lowerCaseStudentName.includes(inputValue);
+        })
+      : [];
+
+    setFilterStudents(filtered);
+  };
 
   return (
     <>
-      <Dashboard />
-      <h1 className='login-title'>Barngruppen</h1>
-      {sortedData &&
-        sortedData.map((student) => (
+      <input
+        className='input-filter'
+        type='text'
+        placeholder='Search...'
+        onChange={filterStudent}
+      />
+      {filterStudents &&
+        filterStudents.map((student) => (
           <div
-            className={`kids-div ${student.graduated && student.graduated === true
-              ? 'graduated'
-              : student.graduated === false
-              }`}
+            className={`kids-div ${
+              student.graduated && student.graduated === true
+                ? 'graduated'
+                : student.graduated === false
+            }`}
             key={student._id}
           >
             <BeltSystem
