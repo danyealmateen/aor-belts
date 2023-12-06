@@ -18,4 +18,3 @@ const student = new Schema({
 });
 
 export const Barn = mongoose.model("barn", student, "barn");
-export const Knattar = mongoose.model("knatte", student, "knatte");

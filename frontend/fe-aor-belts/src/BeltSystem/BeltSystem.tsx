@@ -1,12 +1,12 @@
 import React from 'react';
 import { BeltSystemProps } from '../Interfaces';
-const currentDate = new Date()
+
+const currentDate = new Date();
 const year = currentDate.getFullYear();
 const month = currentDate.toLocaleString('default', { month: 'long' });
 
 const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   const belts = [
-    'Nybörjare',
     'Vitbälte',
     'Vitbälte+1',
     'Vitbälte+2',

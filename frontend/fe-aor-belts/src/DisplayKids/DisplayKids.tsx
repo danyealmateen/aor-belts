@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
 import BeltSystem from '../BeltSystem/BeltSystem';
-import Dashboard from '../Dashboard/Dashboard';
 import { Student } from '../Interfaces';
 
 function DisplayData() {
@@ -17,10 +16,6 @@ function DisplayData() {
     });
 
     try {
-      // //LOKALA
-      // `http://localhost:3000/api/barn/${updatedStudent._id}`
-      //PRODUKTION
-      // `https://aor-belts-main.onrender.com/api/barn/${updatedStudent._id}`
       const response = await fetch(
         `https://aor-belts-main.onrender.com/api/barn/${updatedStudent._id}`,
         {
@@ -45,9 +40,6 @@ function DisplayData() {
 
   async function getData() {
     try {
-      // //LOKALA
-      // const result = await fetch('http://localhost:3000/api/show');
-      // PRODUKTION
       const result = await fetch(
         'https://aor-belts-main.onrender.com/api/barn/'
       );
@@ -81,8 +73,6 @@ function DisplayData() {
 
   return (
     <>
-      <Dashboard />
-      <h1 className='login-title'>Barngruppen</h1>
       {sortedData &&
         sortedData.map((student) => (
           <div
