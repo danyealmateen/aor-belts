@@ -9,12 +9,9 @@ const connectToDatabase = () => {
     throw new Error('MONGODB_URL is not defined in .env file');
   }
 
-  mongoose
-    .connect(`${url}`, {})
-    .then(() => console.log('Connected to the database'))
-    .catch((error) => {
-      console.error('Connection to the database FAILED!:', error);
-    });
+  mongoose.connect(`${url}`, {}).catch((error) => {
+    console.error('Connection to the database FAILED!:', error);
+  });
 };
 
 export default connectToDatabase;
