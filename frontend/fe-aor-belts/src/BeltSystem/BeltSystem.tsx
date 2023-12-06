@@ -1,9 +1,5 @@
 import React from 'react';
 import { BeltSystemProps } from '../Interfaces';
-<<<<<<< HEAD
-=======
-
->>>>>>> d848fd47a2d642aae66872a86e063f0853471a9a
 const currentDate = new Date();
 const year = currentDate.getFullYear();
 const month = currentDate.toLocaleString('default', { month: 'long' });

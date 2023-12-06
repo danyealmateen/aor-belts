@@ -82,7 +82,6 @@ function DisplayData() {
 
   return (
     <>
-<<<<<<< HEAD:frontend/fe-aor-belts/src/DisplayData/DisplayData.tsx
       <input
         className='input-filter'
         type='text'
@@ -91,10 +90,6 @@ function DisplayData() {
       />
       {filterStudents &&
         filterStudents.map((student) => (
-=======
-      {sortedData &&
-        sortedData.map((student) => (
->>>>>>> d848fd47a2d642aae66872a86e063f0853471a9a:frontend/fe-aor-belts/src/DisplayKids/DisplayKids.tsx
           <div
             className={`kids-div ${
               student.graduated && student.graduated === true
