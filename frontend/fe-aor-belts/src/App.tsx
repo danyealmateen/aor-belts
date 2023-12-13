@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DisplayData from './DisplayKids/DisplayKids';
-import Login from './Login/Login';
-import '../src/styles/global.styling.css';
-import { useState } from 'react';
+import NewLogin from './Login/NewLogin';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,7 +12,7 @@ function App() {
   };
 
   if (!isLoggedIn) {
-    return <Login onLogin={handleLogin} />;
+    return <NewLogin onLogin={handleLogin} />;
   }
 
   return (

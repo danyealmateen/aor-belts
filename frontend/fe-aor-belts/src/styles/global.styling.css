@@ -1,128 +1,65 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
+  background-color: rgb(2, 115, 150);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: black !important;
+}
+
+.input-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  font-family: 'Courier New', sans-serif;
-  background-color: rgb(0, 0, 0);
-  font-size: 20px;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 50px;
 }
 
-.kids-div,
-.knatte-div {
+.primary-btn {
+  display: flex;
+  margin: auto;
+}
+
+.student-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin: 5px;
+  background-color: rgba(245, 245, 245, 0.525);
   border-radius: 5px;
-  background-color: rgb(71, 71, 71);
-  padding: 30px;
-  margin: 10px;
-  box-shadow: 0px 4px 6px rgba(102, 102, 102, 0.95);
-}
-
-.asc-btn {
-  background-color: rgba(0, 128, 0, 0.5);
-}
-
-.desc-btn {
-  background-color: rgba(181, 0, 0, 0.5);
 }
 
 .asc-btn,
-.desc-btn,
-.knatte-btn,
-.barn-btn {
-  font-size: 20px;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.asc-btn:hover,
-.desc-btn:hover,
-.knatte-btn:hover,
-.barn-btn:hover,
-.login-btn:hover {
-  transform: scale(1.1);
-}
-
-.graduated {
-  display: block;
-  color: gold;
-}
-
-.login-error {
-  color: red;
-}
-
-.logo {
-  width: 200px;
-}
-
-.input-password,
-.input-username {
-  font-family: 'Inter', sans-serif;
-  border-radius: 5px;
+.desc-btn {
   margin: 5px;
-  border: 3px solid darkgray;
-  font-weight: 1000;
-  background-color: darkgray;
 }
 
-.login-btn {
-  font-family: 'Inter', sans-serif;
-  color: black;
-  border-radius: 5px;
-  background-color: darkgray;
-  border: 1px solid black;
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.content-container-login {
-  padding: 50px;
-}
-
-/* .knatte-div {
-  color: white;
-  background-color: brown;
-  margin: 5px;
-} */
-
-.dashboard-title {
-  color: white;
-}
-
-.knatte-title {
-  color: darkgray;
-}
-
-.login-title {
-  color: darkgray;
-}
-
-.knatte-btn,
-.barn-btn {
-  background-color: darkgray;
-}
-
-.dashboard-title {
-  color: white;
-}
-
-.input-filter {
-  margin: 10px;
-  margin-top: 15px;
-  font-size: 25px;
-  font-family: 'Courier New', sans-serif;
-  border-radius: 5px;
-  border: 3px solid white;
+.content-container-belt-system {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  font-weight: 900;
+  flex-direction: column;
+  margin: auto;
+}
+
+.filter-kids-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  margin: auto;
+  background-color: rgb(2, 115, 150);
+  padding: 15px;
 }

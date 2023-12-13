@@ -1,5 +1,10 @@
 import React from 'react';
 import { BeltSystemProps } from '../Interfaces';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
 const currentDate = new Date();
 const year = currentDate.getFullYear();
 const month = currentDate.toLocaleString('default', { month: 'long' });
@@ -32,7 +37,7 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   function increaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
 
-    console.log(currentIndex);
+    console.log('currentIndex:', currentIndex);
 
     if (currentIndex < belts.length - 1) {
       const updatedStudent = {
@@ -58,21 +63,46 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
 
   return (
     <>
-      <h4>Namn: {student.name}</h4>
-      <h4>Bälte: {student.belt}</h4>
-      <button className='asc-btn' onClick={increaseBelt}>
-        Level-up
-      </button>
-      <button className='desc-btn' onClick={decreaseBelt}>
-        Downgrade
-      </button>
-      {student.graduated === true ? (
-        <h4 className='graduated'>
-          Senast uppdaterad:
-          <br />
-          {month} {year}
-        </h4>
-      ) : null}
+      <div className='content-container-belt-system'>
+        <Container>
+          <Row>
+            <Col className='student-column'>
+              <p>
+                Namn: {student.name}
+                <br />
+                Bälte: {student.belt}
+              </p>
+              <div className='btn-container-beltsystem'>
+                <Button
+                  className='asc-btn'
+                  onClick={() => {
+                    console.log('increase knappen klickad');
+                    increaseBelt();
+                  }}
+                  variant='success'
+                >
+                  +
+                </Button>
+                <Button
+                  className='desc-btn'
+                  onClick={() => {
+                    decreaseBelt();
+                    console.log('decrease knappen klickad');
+                  }}
+                  variant='danger'
+                >
+                  -
+                </Button>
+              </div>
+              {student.graduated === true ? (
+                <p className='graduated'>
+                  Uppdaterad: {month} {year}
+                </p>
+              ) : null}
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };

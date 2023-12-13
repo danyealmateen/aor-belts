@@ -1,6 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import BeltSystem from '../BeltSystem/BeltSystem';
 import { Student } from '../Interfaces';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
 
 function DisplayData() {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
@@ -58,6 +60,14 @@ function DisplayData() {
     getData();
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      setFilterStudents(data);
+    } else {
+      setFilterStudents([]);
+    }
+  }, [data]);
+
   function sortStudents(students: Student[]) {
     return [...students].sort((a, b) => {
       const firstNameA = a.name.split(' ')[0].toLowerCase();
@@ -76,18 +86,22 @@ function DisplayData() {
           return lowerCaseStudentName.includes(inputValue);
         })
       : [];
-
     setFilterStudents(filtered);
   };
 
   return (
     <>
-      <input
-        className='input-filter'
-        type='text'
-        placeholder='Search...'
-        onChange={filterStudent}
-      />
+      <div className='filter-kids-container'>
+        <FloatingLabel label='Sök...' className='mb-3'>
+          <Form.Control
+            className='search-bar'
+            type='text'
+            placeholder='Sök...'
+            onChange={filterStudent}
+          />
+        </FloatingLabel>
+      </div>
+
       {filterStudents &&
         filterStudents.map((student) => (
           <div
