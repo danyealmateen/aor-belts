@@ -13,7 +13,7 @@ router.post('/login', async (req, res) => {
   if (username === adminUser.username && password === adminUser.password) {
     res.status(200).send('You are logged in.');
   } else {
-    res.status(401).send('Wrong username or password.');
+    res.status(401).send('Wrong username or password. Please try again!');
   }
 });
 
