@@ -1,3 +1,5 @@
+
+
 const UpdateKids = () => {
 
     async function updateData(updatedStudent: Student) {

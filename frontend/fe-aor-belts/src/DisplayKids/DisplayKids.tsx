@@ -4,7 +4,7 @@ import { Student } from '../Interfaces';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
-function DisplayData() {
+function DisplayKids() {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
   const [data, setData] = useState<Student[] | null>(null);
 
@@ -80,11 +80,11 @@ function DisplayData() {
     const inputValue = event.target.value.toLowerCase();
     const filtered = data
       ? data.filter((student) => {
-          const lowerCaseStudentName = student.name
-            .toLowerCase()
-            .replace(/ /g, '');
-          return lowerCaseStudentName.includes(inputValue);
-        })
+        const lowerCaseStudentName = student.name
+          .toLowerCase()
+          .replace(/ /g, '');
+        return lowerCaseStudentName.includes(inputValue);
+      })
       : [];
     setFilterStudents(filtered);
   };
@@ -105,11 +105,10 @@ function DisplayData() {
       {filterStudents &&
         filterStudents.map((student) => (
           <div
-            className={`kids-div ${
-              student.graduated && student.graduated === true
+            className={`kids-div ${student.graduated && student.graduated === true
                 ? 'graduated'
                 : student.graduated === false
-            }`}
+              }`}
             key={student._id}
           >
             <BeltSystem
@@ -121,4 +120,4 @@ function DisplayData() {
     </>
   );
 }
-export default DisplayData;
+export default DisplayKids;

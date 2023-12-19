@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DisplayData from './DisplayKids/DisplayKids';
+import DisplayKids from './DisplayKids/DisplayKids';
 import NewLogin from './Login/NewLogin';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { DataContext } from './DisplayKids/DataContext';
+import { DataProvider } from './DisplayKids/DataContext';
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,11 +18,15 @@ function App() {
   // }
 
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<DisplayData />} />
-      </Routes>
-    </Router>
+    <>
+      <DataProvider>
+        <Router>
+          <Routes>
+            <Route path='/' element={<DisplayKids />} />
+          </Routes>
+        </Router>
+      </DataProvider>
+    </>
   );
 }
 export default App;
