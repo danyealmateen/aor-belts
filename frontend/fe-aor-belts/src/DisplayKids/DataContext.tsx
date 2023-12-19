@@ -1,6 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useState, Dispatch, SetStateAction } from "react";
 
-export const DataContext = createContext({});
+interface DataContextType {
+    data: any,
+    setData: Dispatch<SetStateAction<any>>;
+}
+
+export const DataContext = createContext<DataContextType>({
+    data: null,
+    setData: () => { },
+});
 
 export const DataProvider = ({ children }: any) => {
     const [data, setData] = useState();
