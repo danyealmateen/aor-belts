@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DataContext } from './DataContext';
 import BeltSystem from '../BeltSystem/BeltSystem';
 import { Student } from '../Interfaces';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import { DisplayKidsProp } from '../Interfaces';
 
-function DisplayKids() {
+
+function DisplayKids({ updateData }: DisplayKidsProp) {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
-  const [data, setData] = useState<Student[] | null>(null);
+  const { data, setData } = useContext(DataContext);
 
   async function getData() {
     try {

@@ -17,4 +17,8 @@ type Student = {
     graduated: boolean;
 };
 
-export type { BeltSystemProps, Student }
+interface DisplayKidsProp {
+    updateData: (updatedStudent: Student) => Promise<void>;
+}
+
+export type { BeltSystemProps, Student, DisplayKidsProp };

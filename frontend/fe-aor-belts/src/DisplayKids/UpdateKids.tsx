@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { DataContext } from "./DataContext";
 import { Student } from "../Interfaces";
+import DisplayKids from "./DisplayKids";
 
 const UpdateKids = () => {
 
@@ -42,7 +43,7 @@ const UpdateKids = () => {
 
     return (
         <>
-            <h1>update-kids-comp</h1>
+            <DisplayKids updateData={updateData} />
         </>
     );
 };
