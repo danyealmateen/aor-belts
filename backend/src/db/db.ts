@@ -1,16 +1,16 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 dotenv.config();
 
 const url = process.env.MONGODB_URL;
 
 const connectToDatabase = () => {
   if (!process.env.MONGODB_URL) {
-    throw new Error('MONGODB_URL is not defined in .env file');
+    throw new Error("MONGODB_URL is not defined in .env file");
   }
 
   mongoose.connect(`${url}`, {}).catch((error) => {
-    console.error('Connection to the database FAILED!:', error);
+    console.error("Connection to the database FAILED!:", error);
   });
 };
 

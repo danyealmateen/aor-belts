@@ -5,15 +5,15 @@ import NewLogin from './Login/NewLogin';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = (status: boolean) => {
-    setIsLoggedIn(status);
-  };
+  // const handleLogin = (status: boolean) => {
+  //   setIsLoggedIn(status);
+  // };
 
-  if (!isLoggedIn) {
-    return <NewLogin onLogin={handleLogin} />;
-  }
+  // if (!isLoggedIn) {
+  //   return <NewLogin onLogin={handleLogin} />;
+  // }
 
   return (
     <Router>

@@ -37,8 +37,6 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   function increaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
 
-    console.log('currentIndex:', currentIndex);
-
     if (currentIndex < belts.length - 1) {
       const updatedStudent = {
         ...student,

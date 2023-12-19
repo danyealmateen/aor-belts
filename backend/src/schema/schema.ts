@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -17,4 +17,4 @@ const student = new Schema({
   },
 });
 
-export const Barn = mongoose.model('barn', student, 'barn');
+export const Barn = mongoose.model("barn", student, "barn");
