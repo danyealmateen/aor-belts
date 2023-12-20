@@ -1,9 +1,7 @@
 import React from 'react';
 import { BeltSystemProps } from '../Interfaces';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import { Table, Button, Container, Row, Col } from 'react-bootstrap';
+import "../styles/global.styling.css";
 
 const currentDate = new Date();
 const year = currentDate.getFullYear();
@@ -36,7 +34,6 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
 
   function increaseBelt() {
     const currentIndex = belts.indexOf(student.belt);
-
     if (currentIndex < belts.length - 1) {
       const updatedStudent = {
         ...student,
@@ -60,49 +57,36 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   }
 
   return (
-    <>
-      <div className='content-container-belt-system'>
-        <Container>
-          <Row>
-            <Col className='student-column'>
-              <p>
-                Namn: {student.name}
-                <br />
-                Bälte: {student.belt}
-              </p>
-              <div className='btn-container-beltsystem'>
-                <Button
-                  className='asc-btn'
-                  onClick={() => {
-                    console.log('increase knappen klickad');
-                    increaseBelt();
-                  }}
-                  variant='success'
-                >
-                  +
-                </Button>
-                <Button
-                  className='desc-btn'
-                  onClick={() => {
-                    decreaseBelt();
-                    console.log('decrease knappen klickad');
-                  }}
-                  variant='danger'
-                >
-                  -
-                </Button>
-              </div>
-              {student.graduated === true ? (
-                <p className='graduated'>
-                  Uppdaterad: {month} {year}
-                </p>
-              ) : null}
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    </>
+    <Container className='student-container'>
+      <Row>
+        <Col>
+          <Table striped bordered hover variant="dark" className="table-centered">
+            <thead>
+              <tr>
+                <th>Namn</th>
+                <th>Bältesgrad</th>
+                <th>Åtgärder</th>
+                <th>Senaste Uppdatering</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{student.name}</td>
+                <td>{student.belt}</td>
+                <td>
+                  <Button className='level-btns' onClick={decreaseBelt} variant="dark">Minska</Button>
+                  {' '}
+                  <Button className='level-btns' onClick={increaseBelt} variant="dark">Öka</Button>
+                </td>
+                <td>
+                  {student.graduated ? `Uppdaterad: ${month} ${year}` : 'Ej Uppdaterad'}
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+    </Container>
   );
 };
-
 export default BeltSystem;

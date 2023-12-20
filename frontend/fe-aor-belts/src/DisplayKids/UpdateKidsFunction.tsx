@@ -1,7 +1,6 @@
 import { Student } from "../Interfaces";
 
 export const updateData = async (updatedStudent: Student, setData: any) => {
-    // const { data, setData } = useContext(DataContext);
 
     setData((prevData: any) => {
         if (prevData) {

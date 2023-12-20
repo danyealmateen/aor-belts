@@ -4,15 +4,9 @@ import BeltSystem from '../BeltSystem/BeltSystem';
 import { Student } from '../Interfaces';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { DisplayKidsProp } from '../Interfaces';
-import UpdateKids from './UpdateKids';
 import { updateData } from './UpdateKidsFunction';
 
-
 function DisplayKids() {
-
-  console.log("Detta är updateData:", updateData);
-
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
   const { data, setData } = useContext(DataContext);
 
@@ -65,16 +59,14 @@ function DisplayKids() {
 
   return (
     <>
-      <div className='filter-kids-container'>
-        <FloatingLabel label='Sök...' className='mb-3'>
-          <Form.Control
-            className='search-bar'
-            type='text'
-            placeholder='Sök...'
-            onChange={filterStudent}
-          />
-        </FloatingLabel>
-      </div>
+      {/* <FloatingLabel label='Sök...' className='mb-3'>
+        <Form.Control
+          type='text'
+          placeholder='Sök...'
+          onChange={filterStudent}
+        />
+      </FloatingLabel> */}
+
 
       {filterStudents &&
         filterStudents.map((student) => (

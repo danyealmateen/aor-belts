@@ -1,65 +1,12 @@
-body {
-  background-color: rgb(2, 115, 150);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.89);
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
-}
-
-input:-webkit-autofill {
-  -webkit-text-fill-color: black !important;
-}
-
-.input-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 300px;
-  margin: auto;
-  margin-top: 50px;
-}
-
-.primary-btn {
-  display: flex;
-  margin: auto;
-}
-
-.student-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  margin: 5px;
-  background-color: rgba(245, 245, 245, 0.525);
-  border-radius: 5px;
-}
-
-.asc-btn,
-.desc-btn {
-  margin: 5px;
-}
-
-.content-container-belt-system {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.table-centered th,
+.table-centered td {
   text-align: center;
-  flex-direction: column;
-  margin: auto;
-}
-
-.filter-kids-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-weight: 600;
-  margin: auto;
-  background-color: rgb(2, 115, 150);
-  padding: 15px;
+  vertical-align: middle;
 }
