@@ -5,9 +5,14 @@ import { Student } from '../Interfaces';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { DisplayKidsProp } from '../Interfaces';
+import UpdateKids from './UpdateKids';
+import { updateData } from './UpdateKidsFunction';
 
 
-function DisplayKids({ updateData }: DisplayKidsProp) {
+function DisplayKids() {
+
+  console.log("Detta är updateData:", updateData);
+
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
   const { data, setData } = useContext(DataContext);
 
@@ -48,7 +53,7 @@ function DisplayKids({ updateData }: DisplayKidsProp) {
   const filterStudent = (event: any) => {
     const inputValue = event.target.value.toLowerCase();
     const filtered = data
-      ? data.filter((student) => {
+      ? data.filter((student: any) => {
         const lowerCaseStudentName = student.name
           .toLowerCase()
           .replace(/ /g, '');
@@ -82,7 +87,7 @@ function DisplayKids({ updateData }: DisplayKidsProp) {
           >
             <BeltSystem
               student={student}
-              onBeltChange={(updatedStudent) => updateData(updatedStudent)}
+              onBeltChange={(updatedStudent) => updateData(updatedStudent, setData)}
             />
           </div>
         ))}

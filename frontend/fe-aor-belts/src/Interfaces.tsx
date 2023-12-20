@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 type BeltSystemProps = {
     student: {
         _id: string;
@@ -18,7 +20,7 @@ type Student = {
 };
 
 interface DisplayKidsProp {
-    updateData: (updatedStudent: Student) => Promise<void>;
+    updateData: (updatedStudent: Student, setData: Dispatch<SetStateAction<Student[] | null>>) => Promise<void>;
 }
 
 export type { BeltSystemProps, Student, DisplayKidsProp };

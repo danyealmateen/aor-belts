@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import { DataContext } from "./DataContext";
-import { Student } from "../Interfaces";
-import DisplayKids from "./DisplayKids";
+import { useContext } from 'react';
+import { DataContext } from './DataContext';
+import { Student } from '../Interfaces';
+
 
 const UpdateKids = () => {
-
     const { data, setData } = useContext(DataContext);
 
-    async function updateData(updatedStudent: Student) {
-        setData((prevData: []) => {
+    const updateData = async (updatedStudent: Student) => {
+        setData((prevData) => {
             if (prevData) {
                 const newData = prevData.map((s: any) =>
                     s._id === updatedStudent._id ? updatedStudent : s
@@ -39,11 +38,10 @@ const UpdateKids = () => {
         } catch (error) {
             console.error('Error updating student:', error);
         }
-    }
-
+    };
     return (
         <>
-            <DisplayKids updateData={updateData} />
+            <h1>update-kids-comp</h1>
         </>
     );
 };

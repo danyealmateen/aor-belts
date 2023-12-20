@@ -1,8 +1,9 @@
 import { createContext, useState, Dispatch, SetStateAction } from "react";
+import { Student } from "../Interfaces";
 
 interface DataContextType {
-    data: any,
-    setData: Dispatch<SetStateAction<any>>,
+    data: Student[] | null,
+    setData: Dispatch<SetStateAction<Student[] | null>>,
 }
 
 export const DataContext = createContext<DataContextType>({
@@ -11,7 +12,7 @@ export const DataContext = createContext<DataContextType>({
 });
 
 export const DataProvider = ({ children }: any) => {
-    const [data, setData] = useState();
+    const [data, setData] = useState<Student[] | null>(null);
 
     return (
         <DataContext.Provider value={{ data, setData }}>
@@ -19,3 +20,5 @@ export const DataProvider = ({ children }: any) => {
         </DataContext.Provider>
     );
 };
+
+
