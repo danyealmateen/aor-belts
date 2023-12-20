@@ -1,50 +1,13 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.89);
 }
 
-.table-centered th,
-.table-centered td {
-  text-align: center;
-  vertical-align: middle;
-}
-
 .student-container {
-  padding: 20px;
-}
-
-.student-col {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding: 15px;
-  margin-top: 10px;
+  padding: 0px;
 }
 
 .level-btns {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-.level-btns:hover {
-  background-color: #0056b3;
-}
-
-.table-centered th,
-.table-centered td {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.table-centered {
-  width: 100%;
-  table-layout: fixed;
+  margin: 5px 0px 5px 0px;
 }
 
 .table-centered th,
@@ -52,8 +15,4 @@
   text-align: center;
   vertical-align: middle;
   width: 25%;
-}
-
-.level-btns {
-  width: 100%;
 }
