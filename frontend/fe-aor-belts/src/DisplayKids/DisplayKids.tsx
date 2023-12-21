@@ -60,14 +60,12 @@ function DisplayKids() {
 
   return (
     <>
-      <FloatingLabel label='Sök...' className='mb-3 custom-search-label'>
-        <Form.Control
-          type='text'
-          placeholder='Sök...'
-          onChange={filterStudent}
-          className='form-control'
-        />
-      </FloatingLabel>
+      <input
+        type='text'
+        placeholder='Sök...'
+        onChange={filterStudent}
+        className='search-bar'
+      />
       {filterStudents &&
         filterStudents.map((student) => (
           <div
