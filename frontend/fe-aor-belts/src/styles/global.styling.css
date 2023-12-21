@@ -16,3 +16,8 @@
   vertical-align: middle;
   width: 25%;
 }
+
+.form-floating > .form-control {
+  color: orange;
+  background-color: rgb(53, 51, 51);
+}

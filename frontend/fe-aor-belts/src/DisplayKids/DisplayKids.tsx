@@ -5,6 +5,7 @@ import { Student } from '../Interfaces';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { updateData } from './UpdateKidsFunction';
+import "../styles/global.styling.css";
 
 function DisplayKids() {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
@@ -59,15 +60,14 @@ function DisplayKids() {
 
   return (
     <>
-      {/* <FloatingLabel label='Sök...' className='mb-3'>
+      <FloatingLabel label='Sök...' className='mb-3 custom-search-label'>
         <Form.Control
           type='text'
           placeholder='Sök...'
           onChange={filterStudent}
+          className='form-control'
         />
-      </FloatingLabel> */}
-
-
+      </FloatingLabel>
       {filterStudents &&
         filterStudents.map((student) => (
           <div
