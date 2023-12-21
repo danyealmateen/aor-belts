@@ -2,8 +2,6 @@ import { useState, useEffect, useContext } from 'react';
 import { DataContext } from './DataContext';
 import BeltSystem from '../BeltSystem/BeltSystem';
 import { Student } from '../Interfaces';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
 import { updateData } from './UpdateKidsFunction';
 import "../styles/global.styling.css";
 
