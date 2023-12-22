@@ -9,9 +9,12 @@ import Form from 'react-bootstrap/Form';
 
 const Dashboard = () => {
     const [show, setShow] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     return (
         <>
@@ -40,11 +43,19 @@ const Dashboard = () => {
                     <Form.Control
                         type="text"
                         id="username"
+                        onChange={(e) => {
+                            setUsername(e.target.value);
+                            console.log(username);
+                        }}
                     />
                     <Form.Label htmlFor="password">Lösenord</Form.Label>
                     <Form.Control
                         type="password"
                         id="password"
+                        onChange={(e) => {
+                            setPassword(e.target.value);
+                            console.log(password);
+                        }}
                     />
                 </Modal.Body>
                 <Modal.Footer>
