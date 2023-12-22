@@ -4,12 +4,13 @@ import BeltSystem from '../BeltSystem/BeltSystem';
 import { Student } from '../Interfaces';
 import { updateData } from './UpdateKidsFunction';
 import "../styles/global.styling.css";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
 
 function DisplayKids() {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
   const [lastSearchTerm, setLastSearchTerm] = useState('');
   const { data, setData } = useContext(DataContext);
-
 
   async function getData() {
     try {
@@ -67,17 +68,33 @@ function DisplayKids() {
     if (data) {
       applyFilter(lastSearchTerm);
     }
-  }, []);
-
+  }, [data]);
 
   return (
     <>
-      <input
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Sök..."
+        className="mb-3"
+      >
+        <Form.Control
+          type="text"
+          placeholder="Sök..."
+          onChange={filterStudent}
+
+        />
+      </FloatingLabel>
+
+
+      {/* <input
         type='text'
         placeholder='Sök...'
         onChange={filterStudent}
         className='search-bar'
-      />
+      /> */}
+
+
+
       {filterStudents &&
         filterStudents.map((student) => (
           <div
@@ -96,4 +113,5 @@ function DisplayKids() {
     </>
   );
 }
+
 export default DisplayKids;

@@ -60,7 +60,8 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
     <Container className='student-container'>
       <Row>
         <Col>
-          <Table striped bordered hover variant="light" className="table-centered">
+          <Table striped bordered hover variant="light" className="table-centered" responsive size='sm'>
+            {/* sm md lg xl */}
             <thead>
               <tr>
                 <th>Namn</th>

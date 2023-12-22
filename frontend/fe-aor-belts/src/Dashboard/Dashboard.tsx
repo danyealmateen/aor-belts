@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import heroImg from "../images/pair1-2021-1-29-1-55-17.png";
 
 const Dashboard = ({ onLogin }: any) => {
     const [show, setShow] = useState(false);
@@ -88,6 +89,10 @@ const Dashboard = ({ onLogin }: any) => {
                     {loginError && <h2>{loginError}</h2>}
                 </Modal.Footer>
             </Modal>
+            <div className='img-container'>
+                <img className='hero-img' src={heroImg} alt="blabla" />
+            </div>
+
         </>
     );
 };
