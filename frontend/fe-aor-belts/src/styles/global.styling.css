@@ -32,3 +32,11 @@
 .search-bar::placeholder {
   color: white;
 }
+
+.dashboard-link-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  float: right;
+}
