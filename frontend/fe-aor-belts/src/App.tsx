@@ -5,6 +5,7 @@ import NewLogin from './Login/NewLogin';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DataProvider } from './DisplayKids/DataContext';
 import "./styles/global.styling.css";
+import Dashboard from './Dashboard/Dashboard';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <DataProvider>
         <Router>
           <Routes>
-            <Route path='/' element={<DisplayKids />} />
+            <Route path='/' element={<Dashboard />} />
           </Routes>
         </Router>
       </DataProvider>
