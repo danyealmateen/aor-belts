@@ -7,7 +7,9 @@ import "../styles/global.styling.css";
 
 function DisplayKids() {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
+  const [lastSearchTerm, setLastSearchTerm] = useState('');
   const { data, setData } = useContext(DataContext);
+
 
   async function getData() {
     try {
@@ -45,6 +47,11 @@ function DisplayKids() {
 
   const filterStudent = (event: any) => {
     const inputValue = event.target.value.toLowerCase();
+    setLastSearchTerm(inputValue);
+    applyFilter(inputValue);
+  };
+
+  const applyFilter = (inputValue: string) => {
     const filtered = data
       ? data.filter((student: any) => {
         const lowerCaseStudentName = student.name
@@ -55,6 +62,13 @@ function DisplayKids() {
       : [];
     setFilterStudents(filtered);
   };
+
+  useEffect(() => {
+    if (data) {
+      applyFilter(lastSearchTerm);
+    }
+  });
+
 
   return (
     <>
