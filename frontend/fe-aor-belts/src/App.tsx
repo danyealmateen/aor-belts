@@ -9,22 +9,22 @@ import Dashboard from './Dashboard/Dashboard';
 
 
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // const handleLogin = (status: boolean) => {
-  //   setIsLoggedIn(status);
-  // };
+  const handleLogin = (status: boolean) => {
+    setIsLoggedIn(status);
+  };
 
-  // if (!isLoggedIn) {
-  //   return <NewLogin onLogin={handleLogin} />;
-  // }
+  if (!isLoggedIn) {
+    return <Dashboard onLogin={handleLogin} />;
+  }
 
   return (
     <>
       <DataProvider>
         <Router>
           <Routes>
-            <Route path='/' element={<Dashboard />} />
+            <Route path='/' element={<DisplayKids />} />
           </Routes>
         </Router>
       </DataProvider>

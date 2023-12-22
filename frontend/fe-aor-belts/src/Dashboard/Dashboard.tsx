@@ -7,10 +7,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-const Dashboard = () => {
+const Dashboard = ({ onLogin }: any) => {
     const [show, setShow] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loginError, setLoginError] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -29,12 +30,15 @@ const Dashboard = () => {
             );
 
             if (response.ok) {
+                onLogin(true);
                 console.log('You are logged in!');
             } else {
+                setLoginError('Fel användarnamn eller lösenord');
                 console.log('Username or password wrong!');
             }
 
         } catch (e) {
+            setLoginError('Login failed');
             console.log('Couldnt login', e);
         }
     };
@@ -81,6 +85,7 @@ const Dashboard = () => {
                     </Button>
 
                     <Button type='submit' variant="primary" onClick={handleLogin}>Logga in</Button>
+                    {loginError && <h2>{loginError}</h2>}
                 </Modal.Footer>
             </Modal>
         </>
