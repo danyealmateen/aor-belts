@@ -92,7 +92,6 @@ const Dashboard = ({ onLogin }: any) => {
             <div className='img-container'>
                 <img className='hero-img' src={heroImg} alt="blabla" />
             </div>
-
         </>
     );
 };

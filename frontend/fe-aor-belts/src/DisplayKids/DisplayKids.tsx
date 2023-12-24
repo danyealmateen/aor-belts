@@ -6,6 +6,7 @@ import { updateData } from './UpdateKidsFunction';
 import "../styles/global.styling.css";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import AddNewKid from './AddNewKid';
 
 function DisplayKids() {
   const [filterStudents, setFilterStudents] = useState<Student[]>([]);
@@ -84,17 +85,6 @@ function DisplayKids() {
 
         />
       </FloatingLabel>
-
-
-      {/* <input
-        type='text'
-        placeholder='Sök...'
-        onChange={filterStudent}
-        className='search-bar'
-      /> */}
-
-
-
       {filterStudents &&
         filterStudents.map((student) => (
           <div
