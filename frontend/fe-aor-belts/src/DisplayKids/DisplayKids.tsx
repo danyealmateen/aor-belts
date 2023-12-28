@@ -73,6 +73,7 @@ function DisplayKids() {
 
   return (
     <>
+      <AddNewKid />
       <FloatingLabel
         controlId="floatingInput"
         label="Sök..."

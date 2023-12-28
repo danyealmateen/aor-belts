@@ -3,7 +3,7 @@ import { Barn } from "../schema/schema";
 
 const router = express.Router();
 
-router.post("/barn", async (req, res) => {
+router.post("/addkid", async (req, res) => {
   try {
     const newStudent = new Barn(req.body);
     const savedStudent = await newStudent.save();

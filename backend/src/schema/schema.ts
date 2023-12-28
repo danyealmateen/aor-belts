@@ -11,9 +11,11 @@ const student = new Schema({
   },
   group: {
     type: String,
+    default: "",
   },
   graduated: {
     type: Boolean,
+    default: false,
   },
 });
 

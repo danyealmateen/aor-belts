@@ -7,6 +7,7 @@ import getStudents from "./get";
 import putRoute from "./put";
 import path from "path";
 import login from "./login";
+import addNewKid from "./post";
 dotenv.config();
 
 const pathToBuildFolder = path.join(
@@ -24,9 +25,9 @@ app.use(
       "http://localhost:3001",
       "http://localhost:3000",
       "http://localhost:3000/api/login",
-      "http://localhost:3000/api/show/knattar",
       "http://localhost:3000/api/students/:id",
       "https://aor-belts-main.onrender.com/api/students/",
+      "https://aor-belts-main.onrender.com/api/addkid",
     ],
   })
 );
@@ -36,6 +37,7 @@ app.use(express.static(pathToBuildFolder));
 app.use("/api", login);
 app.use("/api", getStudents);
 app.use("/api", putRoute);
+app.use("/api", addNewKid);
 app.get("*", (req, res) => {
   res.sendFile(path.join(pathToBuildFolder, "index.html"));
 });
