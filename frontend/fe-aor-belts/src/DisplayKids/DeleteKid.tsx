@@ -4,7 +4,6 @@ import { Student } from "../Interfaces";
 
 const DeleteKid = ({ id }: any) => {
     const { data, setData } = useContext(DataContext);
-    console.log(data);
 
     const handleDelete = async () => {
         setData((prevData) => {

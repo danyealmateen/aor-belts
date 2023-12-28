@@ -79,7 +79,7 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
                   <Button className='level-btns' onClick={increaseBelt} variant="success">Gradera</Button>
                   {' '}
                   <Button className='level-btns' onClick={decreaseBelt} variant="danger">Nedgrada</Button>
-                  <DeleteKid />
+                  <DeleteKid id={student._id} />
                 </td>
                 {/* <td>
                   {student.graduated ? `Uppdaterad: ${month} ${year}` : 'Ej Uppdaterad'}
