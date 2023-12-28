@@ -14,3 +14,4 @@ router.get("/barn", async (req, res) => {
 });
 
 export default router;
+

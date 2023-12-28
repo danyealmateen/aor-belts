@@ -8,6 +8,7 @@ import putRoute from "./put";
 import path from "path";
 import login from "./login";
 import addNewKid from "./post";
+import deleteKid from "./delete";
 dotenv.config();
 
 const pathToBuildFolder = path.join(
@@ -38,6 +39,7 @@ app.use("/api", login);
 app.use("/api", getStudents);
 app.use("/api", putRoute);
 app.use("/api", addNewKid);
+app.use("/api", deleteKid);
 app.get("*", (req, res) => {
   res.sendFile(path.join(pathToBuildFolder, "index.html"));
 });
