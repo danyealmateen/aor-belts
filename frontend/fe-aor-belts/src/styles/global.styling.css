@@ -14,3 +14,17 @@
   justify-content: center;
   align-items: center;
 }
+
+.delete-btn {
+  margin-left: 5px;
+}
+
+.searchAndAddKidContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  background-color: whitesmoke;
+}

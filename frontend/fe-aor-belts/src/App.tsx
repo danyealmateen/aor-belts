@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DisplayKids from './DisplayKids/DisplayKids';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { DataProvider } from './DisplayKids/DataContext';
-import "./styles/global.styling.css";
+import './styles/global.styling.css';
 import Dashboard from './Dashboard/Dashboard';
-
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

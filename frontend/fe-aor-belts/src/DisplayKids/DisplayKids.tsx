@@ -3,7 +3,7 @@ import { DataContext } from './DataContext';
 import BeltSystem from '../BeltSystem/BeltSystem';
 import { Student } from '../Interfaces';
 import { updateData } from './UpdateKidsFunction';
-import "../styles/global.styling.css";
+import '../styles/global.styling.css';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import AddNewKid from './AddNewKid';
@@ -56,11 +56,11 @@ function DisplayKids() {
   const applyFilter = (inputValue: string) => {
     const filtered = data
       ? data.filter((student: any) => {
-        const lowerCaseStudentName = student.name
-          .toLowerCase()
-          .replace(/ /g, '');
-        return lowerCaseStudentName.includes(inputValue);
-      })
+          const lowerCaseStudentName = student.name
+            .toLowerCase()
+            .replace(/ /g, '');
+          return lowerCaseStudentName.includes(inputValue);
+        })
       : [];
     setFilterStudents(filtered);
   };
@@ -73,31 +73,35 @@ function DisplayKids() {
 
   return (
     <>
-      <AddNewKid />
-      <FloatingLabel
-        controlId="floatingInput"
-        label="Sök..."
-        className="mb-3"
-      >
-        <Form.Control
-          type="text"
-          placeholder="Sök..."
-          onChange={filterStudent}
-
-        />
-      </FloatingLabel>
+      <div className='searchAndAddKidContainer'>
+        <AddNewKid />
+        <FloatingLabel
+          controlId='floatingInput'
+          label='Sök...'
+          className='mb-3'
+        >
+          <Form.Control
+            type='text'
+            placeholder='Sök...'
+            onChange={filterStudent}
+          />
+        </FloatingLabel>
+      </div>
       {filterStudents &&
         filterStudents.map((student) => (
           <div
-            className={`kids-div ${student.graduated && student.graduated === true
-              ? 'graduated'
-              : student.graduated === false
-              }`}
+            className={`kids-div ${
+              student.graduated && student.graduated === true
+                ? 'graduated'
+                : student.graduated === false
+            }`}
             key={student._id}
           >
             <BeltSystem
               student={student}
-              onBeltChange={(updatedStudent) => updateData(updatedStudent, setData)}
+              onBeltChange={(updatedStudent) =>
+                updateData(updatedStudent, setData)
+              }
             />
           </div>
         ))}
