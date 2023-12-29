@@ -25,3 +25,9 @@
   align-items: center;
   background-color: rgb(218, 225, 227);
 }
+
+@media (max-width: 768px) {
+  .delete-btn {
+    float: none;
+  }
+}

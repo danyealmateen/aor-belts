@@ -20,7 +20,7 @@ const AddNewKid = ({ onAddNewKid }: AddNewKidProps) => {
 
   const testObj = {
     name: inputName,
-    belt: inputBelt,
+    belt: 'Vitbälte',
   };
 
   const postNewKid = async () => {
