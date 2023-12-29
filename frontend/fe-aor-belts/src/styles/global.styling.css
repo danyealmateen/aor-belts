@@ -14,9 +14,9 @@
   align-items: center;
 }
 
-/* .delete-btn {
-  margin-left: 5px;
-} */
+.delete-btn {
+  float: right;
+}
 
 .searchAndAddKidContainer {
   display: flex;
