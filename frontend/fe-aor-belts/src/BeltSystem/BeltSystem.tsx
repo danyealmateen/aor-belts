@@ -1,12 +1,8 @@
 import React from 'react';
 import { BeltSystemProps } from '../Interfaces';
 import { Table, Button, Container, Row, Col } from 'react-bootstrap';
-import "../styles/global.styling.css";
+import '../styles/global.styling.css';
 import DeleteKid from '../DisplayKids/DeleteKid';
-
-const currentDate = new Date();
-const year = currentDate.getFullYear();
-const month = currentDate.toLocaleString('default', { month: 'long' });
 
 const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
   const belts = [
@@ -61,14 +57,20 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
     <Container className='student-container'>
       <Row>
         <Col>
-          <Table striped bordered hover variant="light" className="table-centered" responsive size='sm'>
-            {/* sm md lg xl */}
+          <Table
+            striped
+            bordered
+            hover
+            variant='light'
+            className='table-centered'
+            responsive
+            size='sm'
+          >
             <thead>
               <tr>
                 <th>Namn</th>
                 <th>Bältesgrad</th>
                 <th>Åtgärder</th>
-                {/* <th>Senaste Uppdatering</th> */}
               </tr>
             </thead>
             <tbody>
@@ -76,14 +78,22 @@ const BeltSystem: React.FC<BeltSystemProps> = ({ student, onBeltChange }) => {
                 <td>{student.name}</td>
                 <td>{student.belt}</td>
                 <td>
-                  <Button className='level-btns' onClick={increaseBelt} variant="success">Gradera</Button>
-                  {' '}
-                  <Button className='level-btns' onClick={decreaseBelt} variant="danger">Nedgrada</Button>
+                  <Button
+                    className='level-btns'
+                    onClick={increaseBelt}
+                    variant='success'
+                  >
+                    Gradera
+                  </Button>{' '}
+                  <Button
+                    className='level-btns'
+                    onClick={decreaseBelt}
+                    variant='danger'
+                  >
+                    Nedgrada
+                  </Button>
                   <DeleteKid id={student._id} />
                 </td>
-                {/* <td>
-                  {student.graduated ? `Uppdaterad: ${month} ${year}` : 'Ej Uppdaterad'}
-                </td> */}
               </tr>
             </tbody>
           </Table>

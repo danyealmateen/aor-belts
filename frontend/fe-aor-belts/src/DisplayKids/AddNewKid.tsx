@@ -47,9 +47,7 @@ const AddNewKid = () => {
 
   return (
     <>
-      <Button variant='success' onClick={handleShow}>
-        Add new kid
-      </Button>
+      <Button onClick={handleShow}>Add new kid</Button>
       <Modal
         show={show}
         onHide={handleClose}
