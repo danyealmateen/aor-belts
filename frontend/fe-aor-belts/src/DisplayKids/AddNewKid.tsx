@@ -3,8 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import { AddNewKidProps } from '../Interfaces';
 
-const AddNewKid = () => {
+const AddNewKid = ({ onAddNewKid }: AddNewKidProps) => {
   const [show, setShow] = useState(false);
   const [inputName, setInputName] = useState('');
   const [inputBelt, setInputBelt] = useState('');
@@ -34,6 +35,10 @@ const AddNewKid = () => {
           body: JSON.stringify(testObj),
         }
       );
+
+      if (response.ok) {
+        onAddNewKid();
+      }
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -85,7 +90,7 @@ const AddNewKid = () => {
             <Button variant='secondary' onClick={handleClose}>
               Avbryt
             </Button>
-            <Button variant='primary' type='submit'>
+            <Button variant='primary' type='submit' onClick={handleClose}>
               Lägg till
             </Button>
           </Modal.Footer>

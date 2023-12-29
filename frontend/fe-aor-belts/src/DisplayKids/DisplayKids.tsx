@@ -71,10 +71,14 @@ function DisplayKids() {
     }
   }, [data]);
 
+  const refreshData = () => {
+    getData();
+  };
+
   return (
     <>
       <div className='searchAndAddKidContainer'>
-        <AddNewKid />
+        <AddNewKid onAddNewKid={refreshData} />
         <FloatingLabel
           controlId='floatingInput'
           label='Sök...'

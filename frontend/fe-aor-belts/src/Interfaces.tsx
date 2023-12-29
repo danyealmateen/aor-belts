@@ -26,4 +26,8 @@ interface DisplayKidsProp {
   ) => Promise<void>;
 }
 
-export type { BeltSystemProps, Student, DisplayKidsProp };
+type AddNewKidProps = {
+  onAddNewKid: () => void;
+};
+
+export type { BeltSystemProps, Student, DisplayKidsProp, AddNewKidProps };
